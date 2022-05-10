@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import env from "react-dotenv";
 
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=4e877d17abe3cf9dc4b380d08bad6cec`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
